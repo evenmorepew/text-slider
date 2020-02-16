@@ -127,31 +127,57 @@
 </div>
 
 <script>
+    var intervalInMs = 1000;
+
     var slideIndex = 0;
+
     showSlides();
+    setInterval(showSlides, intervalInMs);
 
     function showSlides() {
+        var slides = clearSlides();
+        var dots = clearDots();
 
+        resetSlideIndex(slides);
+
+        updateCurrentSlide(slides);
+        updateCurrentDot(dots);
+
+        incrementSlideIndex();
+    }
+
+    function clearSlides() {
         var slides = document.getElementsByClassName("mySlides");
         for (var i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
         }
+        return slides;
+    }
 
+    function clearDots() {
         var dots = document.getElementsByClassName("dot");
         for (var j = 0; j < dots.length; j++) {
             dots[j].className = dots[j].className.replace(" active", "");
         }
+        return dots;
+    }
 
+    function resetSlideIndex(slides) {
         if (slideIndex === slides.length) {
             slideIndex = 0
         }
+    }
 
+    function updateCurrentSlide(slides) {
         slides[slideIndex].style.display = "block";
+    }
+
+    function updateCurrentDot(dots) {
         dots[slideIndex].className += " active";
+    }
 
+    function incrementSlideIndex() {
         slideIndex++;
-
-        setTimeout(showSlides, 2000); // Change text every x seconds
     }
 </script>
 
