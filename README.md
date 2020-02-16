@@ -1,6 +1,6 @@
 # text-slider
 
-Pretty much merging
+Pretty much combining
 
 https://www.w3schools.com/howto/howto_js_quotes_slideshow.asp
 
