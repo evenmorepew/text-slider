@@ -121,13 +121,13 @@
 <br>
 
 <div style="text-align:center">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
+    <span class="dot" onclick="showSpecificSlide(0)"></span>
+    <span class="dot" onclick="showSpecificSlide(1)"></span>
+    <span class="dot" onclick="showSpecificSlide(2)"></span>
 </div>
 
 <script>
-    var intervalInMs = 1000;
+    var intervalInMs = 5000;
 
     var slideIndex = 0;
 
@@ -138,7 +138,7 @@
         var slides = clearSlides();
         var dots = clearDots();
 
-        resetSlideIndex(slides);
+        resetSlideIndexIfAtEnd(slides);
 
         updateCurrentSlide(slides);
         updateCurrentDot(dots);
@@ -162,7 +162,7 @@
         return dots;
     }
 
-    function resetSlideIndex(slides) {
+    function resetSlideIndexIfAtEnd(slides) {
         if (slideIndex === slides.length) {
             slideIndex = 0
         }
@@ -178,6 +178,16 @@
 
     function incrementSlideIndex() {
         slideIndex++;
+    }
+
+    function showSpecificSlide(index) {
+        slideIndex = index;
+
+        var slides = clearSlides();
+        var dots = clearDots();
+
+        updateCurrentSlide(slides);
+        updateCurrentDot(dots);
     }
 </script>
 
